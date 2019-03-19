@@ -7,6 +7,8 @@ import com.intro.a_patrones.a_observer.PrincipalUsoObserver;
 import com.intro.a_patrones.b_observable.UsandoObservableFuEv;
 import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoClasico;
 import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoFuncional;
+import com.intro.a_patrones.e_concurrencia.UsandoFuturos;
+import com.intro.a_ptarones.f_interfazfuncional.UsandoInterfacesFuncionales;
 
 @SpringBootApplication
 public class ReproducirEjemplosApplication {
@@ -18,7 +20,9 @@ public class ReproducirEjemplosApplication {
 		// UsandoObservableFuEv.main();
 		// UsandoObservableFutu...
 		// CalculosMetodoClasico.calcular();
-		CalculosMetodoFuncional.calcular();
+		// CalculosMetodoFuncional.calcular();
+		// UsandoFuturos.ejecutarEjemplo();
+		UsandoInterfacesFuncionales.ejecutarEjemplo();
 		
 		// System.exit(0);
 	}

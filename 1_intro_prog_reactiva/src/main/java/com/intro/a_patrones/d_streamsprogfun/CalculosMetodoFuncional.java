@@ -13,8 +13,11 @@ public class CalculosMetodoFuncional {
 		lista.add(new Gasto("Coche",5000));
 		
 		double ivaMenores2000 = lista.stream()
-				.filter(gasto -> gasto.getImporte() < 2000)
-				.mapToDouble(gasto -> gasto.getImporte() * 0.21)
+				//.filter(gasto -> gasto.getImporte() < 2000)
+				.mapToDouble(gasto ->  
+					gasto.getImporte() < 2000 ? 
+							gasto.getImporte() * 0.21 
+							: gasto.getImporte() * 0.16 )
 				.sum();
 		System.out.println("ivaMenores2000 = " + ivaMenores2000);
 	}

@@ -32,8 +32,7 @@ public class UsandoObservableFuEv {
 		new Thread(fuenEv).start();
 	}
 	
-	static void UnObservador(Observable obj, 
-			Object arg) {
+	static void UnObservador(Observable obj,  Object arg) {
 		out.println("\nUn Observador, Respuesta recibida"
 				+ arg.toString());
 	}
