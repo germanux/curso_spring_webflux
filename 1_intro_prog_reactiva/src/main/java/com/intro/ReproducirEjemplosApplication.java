@@ -10,6 +10,7 @@ import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoFuncional;
 import com.intro.a_patrones.e_concurrencia.UsandoFuturos;
 import com.intro.a_ptarones.f_interfazfuncional.UsandoInterfacesFuncionales;
 import com.intro.b_reactor.UsandoMonoYFlux;
+import com.intro.b_reactor.UsandoSubscriber;
 
 @SpringBootApplication
 public class ReproducirEjemplosApplication {
@@ -24,8 +25,8 @@ public class ReproducirEjemplosApplication {
 		// CalculosMetodoFuncional.calcular();
 		// UsandoFuturos.ejecutarEjemplo();
 		// UsandoInterfacesFuncionales.ejecutarEjemplo();
-		UsandoMonoYFlux.ejecutarEjemplo();
-		
+		// UsandoMonoYFlux.ejecutarEjemplo();
+		UsandoSubscriber.ejemploSubscriber();
 		// System.exit(0);
 	}
 
