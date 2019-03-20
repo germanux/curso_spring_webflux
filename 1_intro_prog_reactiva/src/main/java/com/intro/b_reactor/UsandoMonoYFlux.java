@@ -15,8 +15,7 @@ public class UsandoMonoYFlux {
 		// ejemploMono();
 		// ejemploMono2();
 		// ejemploFlux();
-		// ejemploFlux2();
-		ejemplo12Monos2Flux();
+		ejemploFlux2();
 	}
 
 	public static void ejemploMono() {
@@ -74,23 +73,6 @@ public class UsandoMonoYFlux {
 		muchosPalabros.subscribe(System.out::println);
 	}
 	
-	public static void ejemplo12Monos2Flux() {
-		Mono<String> mono1 = Mono.just("1 King kong\n");
-		Mono<String> mono2 = Mono.just("2 Amedio\n");
-		Mono<String> mono3 = Mono.just("3 orangután\n");
-		Mono<String> mono4 = Mono.just("4 Macaco\n");
-	
-		Flux<String> flujo4monos = Flux.concat(mono1, mono2,mono3,mono4)
-				.delayElements(Duration.ofMillis(1000));
-		flujo4monos.subscribe(System.out::println);
-		
-		Flux<String> flujo8monos = Flux.range(1, 8)
-				.map(i -> "Mono ".concat(String.valueOf(i + 4)))
-				.delayElements(Duration.ofMillis(500));
-		Flux<String> flujo12monos;
-		flujo12monos = Flux.concat(flujo4monos, flujo8monos);
-		flujo12monos.subscribe(System.out::println);
-	}
 	
 }
 

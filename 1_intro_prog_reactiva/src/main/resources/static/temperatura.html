@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Temperatura SSE con Servlets y Spring MVC</title>
+</head>
+<body>
+	<h1>Temperatura SSE con Servlets y Spring MVC</h1>
+	<ul id="ul_eventos"></ul>
+<script type="text/javascript">
+	// Cuando recibimos un texto, lo añadimos a la lista <UL>
+	function add(mensaje) {
+		const elem = document.createElement("li");
+		elem.innerHTML = mensaje;
+		document.getElementById("ul_eventos").appendChild(elem);
+	}
+	// Conectar al servidor y mediante el objeto EventSource, recoger todo tipo de eventos
+	var fuenteEventos = new EventSource("/temperature-stream");
+	// Capturar el evento al conectarse: onopen
+	fuenteEventos.onopen =   e => add("Conexión abierta");
+	fuenteEventos.onerror =   e => add("Conexión cerrada");
+	
+	fuenteEventos.onmessage = ( e ) => {
+		const t = JSON.parse(e.data);
+		const fixed = Number(t.grados).toFixed(2);
+		add("Temperatura recibida: " + fixed + 'C');
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -9,6 +9,7 @@ import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoClasico;
 import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoFuncional;
 import com.intro.a_patrones.e_concurrencia.UsandoFuturos;
 import com.intro.a_ptarones.f_interfazfuncional.UsandoInterfacesFuncionales;
+import com.intro.b_reactor.UsandoCombinacionesFlux;
 import com.intro.b_reactor.UsandoMonoYFlux;
 import com.intro.b_reactor.UsandoSubscriber;
 
@@ -26,8 +27,9 @@ public class ReproducirEjemplosApplication {
 		// UsandoFuturos.ejecutarEjemplo();
 		// UsandoInterfacesFuncionales.ejecutarEjemplo();
 		// UsandoMonoYFlux.ejecutarEjemplo();
-		UsandoSubscriber.ejemploSubscriber();
+		// UsandoSubscriber.ejemploSubscriber();
+		// UsandoCombinacionesFlux.ejecutarEjemplo();
+		
 		// System.exit(0);
 	}
-
 }
