@@ -15,7 +15,7 @@
 		document.getElementById("ul_eventos").appendChild(elem);
 	}
 	// Conectar al servidor y mediante el objeto EventSource, recoger todo tipo de eventos
-	var fuenteEventos = new EventSource("/temperature-stream");
+	var fuenteEventos = new EventSource("/temperature-flux");
 	// Capturar el evento al conectarse: onopen
 	fuenteEventos.onopen =   e => add("Conexión abierta");
 	fuenteEventos.onerror =   e => add("Conexión cerrada");
