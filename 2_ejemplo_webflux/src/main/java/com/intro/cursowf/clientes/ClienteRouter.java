@@ -19,6 +19,8 @@ import org.springframework.http.MediaType;
 @CrossOrigin
 public class ClienteRouter {
 	
+	// Equivalente a @RestController() y @RequestMapping() pero con
+	// Puntos finales funcionales
 	@Bean
 	public RouterFunction<ServerResponse> monoRouterFuncion_1(ClienteHandler clienteHandler) {
 		
