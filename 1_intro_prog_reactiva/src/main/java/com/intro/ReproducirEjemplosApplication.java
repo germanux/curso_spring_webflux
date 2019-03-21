@@ -2,22 +2,17 @@ package com.intro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.WebClient;
 
-import com.intro.a_patrones.a_observer.PrincipalUsoObserver;
-import com.intro.a_patrones.b_observable.UsandoObservableFuEv;
-import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoClasico;
-import com.intro.a_patrones.d_streamsprogfun.CalculosMetodoFuncional;
-import com.intro.a_patrones.e_concurrencia.UsandoFuturos;
-import com.intro.a_ptarones.f_interfazfuncional.UsandoInterfacesFuncionales;
-import com.intro.b_reactor.UsandoCombinacionesFlux;
-import com.intro.b_reactor.UsandoMonoYFlux;
-import com.intro.b_reactor.UsandoSubscriber;
+import reactor.core.publisher.Flux;
 
 @SpringBootApplication
 public class ReproducirEjemplosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReproducirEjemplosApplication.class, args);
+		 SpringApplication.run(ReproducirEjemplosApplication.class, args);
 		
 		// PrincipalUsoObserver.ejecuta();
 		// UsandoObservableFuEv.main();
@@ -31,5 +26,27 @@ public class ReproducirEjemplosApplication {
 		// UsandoCombinacionesFlux.ejecutarEjemplo();
 		
 		// System.exit(0);
+		//lanzarPeticionConWebClient();
 	}
+
+	public static void lanzarPeticionConWebClient() {
+		WebClient clienteWeb = WebClient.create("http://localhost:8080/api");		
+		WebClient.RequestHeadersSpec especificPeticion =
+				clienteWeb.method(HttpMethod.GET)
+				.uri("/reactive/clientes")
+				.body(BodyInserters.fromPublisher(
+						Flux.just(new Cliente()), Cliente.class));
+		
+		Flux<Cliente> clienteResp = especificPeticion.retrieve().bodyToFlux(Cliente.class);
+		
+		clienteResp.subscribe(cli ->System.out.println(">>>>> " + cli.toString() + "<<<"));
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// System.out.println(clienteResp.toString());
+	}	
 }

@@ -1,4 +1,4 @@
-package com.intro.cursowf.clientes;
+package com.intro;
 
 public class Cliente {
 	private String id;
